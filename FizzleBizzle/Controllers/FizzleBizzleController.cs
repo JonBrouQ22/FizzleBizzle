@@ -42,7 +42,8 @@ namespace FizzleBizzle.Controllers
                 }
                 else
                 {
-                    ViewBag.Result = FizzBizz.FizzBuzz(start, end);
+                    Predicate<int> pred = null;
+                    ViewBag.Result = FizzBizz.FizzBuzzBazz(start, end, pred);
                 }
             }
             return PartialView("Results");

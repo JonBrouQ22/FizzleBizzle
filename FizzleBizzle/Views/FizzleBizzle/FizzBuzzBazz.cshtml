@@ -6,13 +6,9 @@
         <input type="number" name="end" placeholder="End" class="form-control" value="" required />
     </div>
     <div class="col-xs-12 col-sm-6 fb-input">
-        @*@Html.TextBoxFor(model => model.Fizz, new { @class="form-control", placeholder="Fizz", type="number"})
-            @Html.ValidationMessageFor(model => model.Fizz)*@
         <input type="number" name="fizz" placeholder="Fizz" class="form-control" value="" required />
     </div>
     <div class="col-xs-12 col-sm-6 fb-input">
-        @*@Html.TextBoxFor(model => model.Buzz, new { @class = "form-control", placeholder = "Buzz", type = "number"})
-            @Html.ValidationMessageFor(model => model.Buzz)*@
         <input type="number" name="buzz" placeholder="Buzz" class="form-control" value="" required />
     </div>
     <div class="col-xs-12 col-sm-6 fb-input checkbox">
@@ -37,6 +33,7 @@
     $(document).ready(function () {
         $("#generate").on("click", function (e) {
             e.preventDefault();
+            // TODO: break out of function and return feedback on incorrect inputs.
             var formData = $('#fbForm').serialize();
             //alert(formData);
             $.ajax({

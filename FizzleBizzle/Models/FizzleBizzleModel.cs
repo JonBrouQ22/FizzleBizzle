@@ -11,7 +11,7 @@ namespace FizzleBizzle
         int Fizz { set; get; }
         int Buzz { set; get; }
 
-        string[] FizzBuzz(int start, int end);
+        //string[] FizzBuzz(int start, int end);
 
         string[] FizzBuzzBazz(int start, int end, Predicate<int> bazz);
     }
@@ -34,28 +34,29 @@ namespace FizzleBizzle
             get { return _buzz; }
             set { _buzz = value; }
         }
-        public string[] FizzBuzz(int start, int end)
-        {
-            List<string> numList = new List<string>();
+        //------ Consolidate this into FizzBuzzBazz()
+        //public string[] FizzBuzz(int start, int end)
+        //{
+        //    List<string> numList = new List<string>();
 
-            for(int i = start; i <= end; i++)
-            {
-                if(i % Fizz == 0 && i % Buzz == 0)
-                {
-                    numList.Add("FizzBuzz");
-                } else if(i % Fizz == 0)
-                {
-                    numList.Add("Fizz");
-                } else if(i % Buzz == 0)
-                {
-                    numList.Add("Buzz");
-                } else
-                {
-                    numList.Add(i.ToString());
-                }
-            }
-            return numList.ToArray();
-        }
+        //    for(int i = start; i <= end; i++)
+        //    {
+        //        if(i % Fizz == 0 && i % Buzz == 0)
+        //        {
+        //            numList.Add("FizzBuzz");
+        //        } else if(i % Fizz == 0)
+        //        {
+        //            numList.Add("Fizz");
+        //        } else if(i % Buzz == 0)
+        //        {
+        //            numList.Add("Buzz");
+        //        } else
+        //        {
+        //            numList.Add(i.ToString());
+        //        }
+        //    }
+        //    return numList.ToArray();
+        //}
 
         public string[] FizzBuzzBazz(int start, int end, Predicate<int> bazz)
         {
@@ -63,7 +64,10 @@ namespace FizzleBizzle
 
             for (int i = start; i <= end; i++)
             {
-                var boolean = bazz(i); 
+                var boolean = false;
+                if (!bazz.Equals(null))
+                    boolean = bazz(i);
+
                 if (i % Fizz == 0 && i % Buzz == 0 && boolean)
                 {
                     numList.Add("FizzBuzzBazz");
