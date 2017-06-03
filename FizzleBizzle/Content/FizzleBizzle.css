@@ -1,0 +1,78 @@
+﻿body {
+    padding: 0 25%;
+}
+.fb-content {
+    padding: 5em;
+    background-color: #CC3611;
+    color: #fff;
+    border-radius: 1em;
+}
+/*.fb-bazz-tog {
+    border-radius: 0.5em;
+    color: #CC3611;
+    width: 
+}
+.fb-bazz-tog-box {
+    box-shadow:inset rgba(0,0,0,4) 0.5em 0.5em;
+    border-radius: 0.5em;
+}*/
+.fb-btn {
+    color: #CC3611;
+    background-color: #fff;
+    border:none;
+    width:100%;
+    height: 3em;
+    border-radius:0.5em;
+}
+.fb-btn-container {
+    padding-left: 0;
+    padding-right: 0;
+}
+.fb-example {
+    color: #CC3611;
+    background-color: #fff;
+    border-top-right-radius: 1em;
+    border-bottom-left-radius: 1em;
+    padding: 1em;
+    margin-bottom: 1em;
+}
+.fb-example > h4 {
+    font-weight: 800;
+    font-size:small;
+}
+.fb-example > p {
+    font-weight: 700;
+    font-size:small;
+}
+.fb-input {
+    margin: 0.5em 0 0.5em 0;
+    padding-left: 0;
+    padding-right: 0;
+}
+@media (min-width: 768px) {
+    .fb-input:nth-child(even) {
+        padding-right: 0;
+        padding-left: 15px;
+    }
+
+    .fb-input:nth-child(odd) {
+        padding-left: 0;
+        padding-right: 15px;
+    }
+}
+.float-right{
+    float:right;
+}
+hr{
+    margin-top: 0;
+    margin-bottom: 0;
+    border: none;
+    height: 0.5em;
+    color: #fff;
+    background-color: #fff;
+}
+#output{
+    padding: 1em;
+    border: 2px solid #fff;
+    border-radius: 1em;
+}

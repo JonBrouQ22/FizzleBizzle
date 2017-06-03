@@ -1,0 +1,34 @@
+﻿@model FizzleBizzleModel
+@{
+    Page.Title = "FizzleBizzleTest";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="col-xs-12 fb-content">
+    <section class="clearfix">
+        <h1>Fizzle Bizzle Test</h1>
+        <hr />
+        <h4 class="float-right" style="margin-top:3px;">For Engagency</h4>
+    </section>
+    <section>
+        <p>
+            <b>FizzBuzz</b> generates an array of strings representing the consecutive sequence of integers from start to end.
+            When the integer is a multiple of Fizz, the string "Fizz" will be added instead. Likewise, for multiples of Buzz,
+            "Buzz" is added. For multiples of both Fizz and Buzz, "FizzBuzz" is added.
+        </p>
+        <div class="fb-example">
+            <h4>For example:</h4>
+            <p>
+                With Fizz = 3, Buzz = 5, start = 1, and end = 15; the array looks like:<br />
+                ["1","2","Fizz","4","Buzz","Fizz","7","8", ... ,"14","FizzBuzz"]
+            </p>
+        </div>
+    </section>
+    <section class="clearfix">
+        @Html.Partial("FizzBuzzBazz")
+    </section>
+    @Html.Partial("Results")
+</div>
+<script>
+    
+</script>

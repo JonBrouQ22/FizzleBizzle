@@ -1,0 +1,65 @@
+﻿<form id="fbForm" name="fbForm">
+    <div class="col-xs-12 col-sm-6 fb-input">
+        <input type="number" name="start" placeholder="Start" class="form-control" value="" required />
+    </div>
+    <div class="col-xs-12 col-sm-6 fb-input">
+        <input type="number" name="end" placeholder="End" class="form-control" value="" required />
+    </div>
+    <div class="col-xs-12 col-sm-6 fb-input">
+        @*@Html.TextBoxFor(model => model.Fizz, new { @class="form-control", placeholder="Fizz", type="number"})
+            @Html.ValidationMessageFor(model => model.Fizz)*@
+        <input type="number" name="fizz" placeholder="Fizz" class="form-control" value="" required />
+    </div>
+    <div class="col-xs-12 col-sm-6 fb-input">
+        @*@Html.TextBoxFor(model => model.Buzz, new { @class = "form-control", placeholder = "Buzz", type = "number"})
+            @Html.ValidationMessageFor(model => model.Buzz)*@
+        <input type="number" name="buzz" placeholder="Buzz" class="form-control" value="" required />
+    </div>
+    <div class="col-xs-12 col-sm-6 fb-input checkbox">
+        <input type="checkbox" id="togBazz" data-toggle="toggle" data-onstyle="default" /><label for="togBazz" style="padding-left:5px;">Enable Bazz?</label>
+    </div>
+    <div class="col-xs-12 col-sm-6 fb-input bazz">
+        <input type="number" name="bazz" placeholder="Bazz" class="form-control" value="" />
+    </div>
+    <div class="col-xs-12 col-sm-6 fb-input bazz">
+        <select class="form-control" name="type">
+            <option value="" disabled selected>Predicate</option>
+            <option value="gt">Greater Than</option>
+            <option value="lt">Less Than</option>
+            <option value="eq">Equal To</option>
+        </select>
+    </div>
+    <div class="col-xs-12 fb-btn-container">
+        <button type="button" id="generate" class="fb-btn">Generate</button>
+    </div>
+</form>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $("#generate").on("click", function (e) {
+            e.preventDefault();
+            var formData = $('#fbForm').serialize();
+            //alert(formData);
+            $.ajax({
+                url: '@Url.Action("FizzBuzzBazz", "FizzleBizzle")',
+                type: "POST",
+                data: formData
+            }).done(function (result) {
+                $("#output").html(result);
+            }).fail(function () {
+                $("#output").html("There were invalid inputs.");
+            });
+            return false;
+        });
+    })
+    $(function () {
+        $(".bazz").hide();
+        $("#togBazz").bootstrapToggle();
+        $("#togBazz").change(function () {
+            if ($(this).prop('checked')) {
+                $(".bazz").show();
+            } else {
+                $(".bazz").hide();
+            }
+        })
+    });
+</script>

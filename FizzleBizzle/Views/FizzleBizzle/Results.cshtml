@@ -1,0 +1,11 @@
+﻿
+<div id="output"> Output:<br />
+    @if(ViewBag.Result != null){
+        for (int i = 0; i < ViewBag.Result.Length; i++)
+        {
+            <span>
+                @ViewBag.Result[i];
+            </span>
+        }
+    }
+</div>
