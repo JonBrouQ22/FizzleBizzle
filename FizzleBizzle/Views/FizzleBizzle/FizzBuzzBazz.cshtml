@@ -33,18 +33,70 @@
     $(document).ready(function () {
         $("#generate").on("click", function (e) {
             e.preventDefault();
-            // TODO: break out of function and return feedback on incorrect inputs.
-            var formData = $('#fbForm').serialize();
-            //alert(formData);
-            $.ajax({
-                url: '@Url.Action("FizzBuzzBazz", "FizzleBizzle")',
-                type: "POST",
-                data: formData
-            }).done(function (result) {
-                $("#output").html(result);
-            }).fail(function () {
-                $("#output").html("There were invalid inputs.");
-            });
+            var form = $('#fbForm');
+            var start = $('input[name=start]').val();
+            var end = $('input[name=end]').val();
+            var fizz = $('input[name=fizz]').val();
+            var buzz = $('input[name=buzz]').val();
+            var bazzToggle = $("#togBazz").val();
+            var bazz = $('input[name=bazz]').val();
+            //Prevent bazz input from sending to server when toggled off
+            if (bazzToggle === false && bazz !== null) {
+                clearBazz();
+            }
+            // break out of function and return feedback on empty inputs.
+            if (start && end && fizz && buzz && (!bazzToggle || (bazzToggle && bazz))) {
+                try {
+                    //Round decimals to the nearest integer
+                    start = Math.round(start);
+                    end = Math.round(end);
+                    fizz = Math.round(fizz);
+                    buzz = Math.round(buzz);
+                    if (bazz) {
+                        bazz = Math.round(bazz);
+                    }
+                    var formData = form.serialize();
+                } catch (error) {
+                    //print out the error and break out
+                    $("#output").html(error);
+                    return false;
+                }
+                //alert(formData);
+                $.ajax({
+                    url: '@Url.Action("FizzBuzzBazz", "FizzleBizzle")',
+                    type: "POST",
+                    data: formData
+                }).done(function (result) {
+                    $("#output").html(result);
+                }).fail(function () {
+                    $("#output").html("There were invalid inputs.");
+                });
+            }
+            else if (!start) {
+                //highlight and focus on start input
+                $('input[name=start]').style.border = "red 3px solid";
+                $('input[name=start]').focus();
+            }
+            else if (!end) {
+                //highlight and focus on end input
+                $('input[name=end]').style.border = "red 3px solid";
+                $('input[name=end]').focus();
+            }
+            else if (!fizz) {
+                //highlight and focus on fizz input
+                $('input[name=fizz]').style.border = "red 3px solid";
+                $('input[name=fizz]').focus();
+            }
+            else if (!buzz) {
+                //highlight and focus on buzz input
+                $('input[name=buzz]').style.border = "red 3px solid";
+                $('input[name=buzz]').focus();
+            }
+            else if (bazzToggle && !bazz) {
+                //highlight and focus on bazz input
+                $('input[name=bazz]').style.border = "red 3px solid";
+                $('input[name=bazz]').focus();
+            }
             return false;
         });
     })
@@ -56,7 +108,13 @@
                 $(".bazz").show();
             } else {
                 $(".bazz").hide();
+                clearBazz();
             }
         })
     });
+
+    function clearBazz() {
+        $("input[name=bazz]").val(null);
+        $("input[name=type]").val(null);
+    }
 </script>

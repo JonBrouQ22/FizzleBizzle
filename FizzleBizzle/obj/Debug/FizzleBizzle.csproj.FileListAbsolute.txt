@@ -64,4 +64,3 @@ c:\users\jonathan\documents\visual studio 2017\Projects\FizzleBizzle\FizzleBizzl
 c:\users\jonathan\documents\visual studio 2017\Projects\FizzleBizzle\FizzleBizzle\bin\Microsoft.AI.Web.xml
 c:\users\jonathan\documents\visual studio 2017\Projects\FizzleBizzle\FizzleBizzle\obj\Debug\FizzleBizzle.dll
 c:\users\jonathan\documents\visual studio 2017\Projects\FizzleBizzle\FizzleBizzle\obj\Debug\FizzleBizzle.pdb
-C:\Users\Jonathan\Documents\Visual Studio 2017\Projects\FizzleBizzle\FizzleBizzle\obj\Debug\FizzleBizzle.csprojResolveAssemblyReference.cache
