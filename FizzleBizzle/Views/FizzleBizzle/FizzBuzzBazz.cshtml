@@ -73,29 +73,19 @@
                 });
             }
             else if (!start) {
-                //highlight and focus on start input
-                $('input[name=start]').style.border = "red 3px solid";
-                $('input[name=start]').focus();
+                showError($('input[name=start]'));
             }
             else if (!end) {
-                //highlight and focus on end input
-                $('input[name=end]').style.border = "red 3px solid";
-                $('input[name=end]').focus();
+                showError($('input[name=end]'));
             }
             else if (!fizz) {
-                //highlight and focus on fizz input
-                $('input[name=fizz]').style.border = "red 3px solid";
-                $('input[name=fizz]').focus();
+                showError($('input[name=fizz]'));
             }
             else if (!buzz) {
-                //highlight and focus on buzz input
-                $('input[name=buzz]').style.border = "red 3px solid";
-                $('input[name=buzz]').focus();
+                showError($('input[name=buzz]'));
             }
             else if (bazzToggle && !bazz) {
-                //highlight and focus on bazz input
-                $('input[name=bazz]').style.border = "red 3px solid";
-                $('input[name=bazz]').focus();
+                showError($('input[name=bazz]'));
             }
             return false;
         });
@@ -116,5 +106,9 @@
     function clearBazz() {
         $("input[name=bazz]").val(null);
         $("input[name=type]").val(null);
+    }
+    function showError(element) {
+        element.style.border = "red 3px solid";
+        element.focus();
     }
 </script>
